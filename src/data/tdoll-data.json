@@ -1,0 +1,103 @@
+[
+  {
+    "id": "hk416",
+    "name": "HK416: Core Build",
+    "roleDescription": "HK416 è la T-Doll consigliata per completare l'evento e subito da potenziare. Le sue abilità a grappolo la rendono eccellente per il controllo di area.",
+    "isInitialChoice": true,
+    "images": {
+      "detailsImage": "HK416_details",
+      "abilitiesImage": "HK416_abilities"
+    },
+    "stats": [
+      { "label": "Danni", "value": 12 },
+      { "label": "Salute", "value": 24 },
+      { "label": "Munizioni", "value": 25 },
+      { "label": "Scudo", "value": 24 }
+    ],
+    "details": {
+      "modLevel": "MOD3",
+      "enhancements": [
+        "Protocollo [FAS standard] Banda +1",
+        "Protocollo [Stella] Banda +1"
+      ]
+    },
+    "abilities": [
+      {
+        "id": 1,
+        "name": "Granata termobarica",
+        "cooldown": "10s",
+        "text": "Lanci una granata che danneggia i nemici nel raggio d’azione."
+      },
+      {
+        "id": 2,
+        "name": "Granata ardente",
+        "cooldown": "10s",
+        "text": "Lancia questa granata per creare un’area infuocata che infligge danni periodici ai nemici nel raggio d’azione e aumenta i danni che subiscono."
+      },
+      {
+        "id": 3,
+        "name": "Granata a grappolo",
+        "cooldown": "10s",
+        "text": "Lanci una granata a grappolo che si separa in diverse granate più piccole per infliggere ulteriori danni dopo la prima esplosione."
+      }
+    ]
+  },
+  {
+    "id": "suomi",
+    "name": "Suomi Mod3 (potenziata)",
+    "role": "Immancabile",
+    "description": "Suomi potenziata è immancabile. Nonostante non offra potenziamenti diretti alle catene d'attacco, la sua abilità onda d'urto che si attiva ricaricando l'arma è micidiale, in più ha velocità di movimento, capienza caricatore, schivata personale.",
+    "images": {
+      "mainImage": "Suomi",
+      "detailsImage": "Suomi_details"
+    },
+    "detailsAlt": "Statistiche dettagliate della T-Doll Suomi Mod3: Concentrazione celata, Spettro nevoso e Protocolli vari.",
+    "abilities": [
+      {
+        "name": "Concentrazione celata",
+        "text": "Ogni uccisione accumula 1 strato; ricaricando attivi una portata di 10/20/30 strato, e un'onda d'urto che infligge danni pari a 5/10/30 strato."
+      },
+      {
+        "name": "Spettro nevoso",
+        "text": "schivata personale +60/90/150%, e PS Scudo massimi +30/45/60."
+      },
+      {
+        "name": "Protocollo MIT standard",
+        "text": "Velocità di movimento e cadenza di fuoco + 20/30/50/80/120% quando si ricarica, dura 3/5/7/7/10s."
+      },
+      {
+        "name": "Protocollo Luna",
+        "text": "Limite PS -30/60/90%. PS Scudo e velocità di recupero +60/120/200%."
+      }
+    ]
+  },
+  {
+    "id": "mg4",
+    "name": "MG4 Mod3 (potenziata)",
+    "role": "Danno e portata",
+    "description": "Se usata correttamente in combinazione con una catena di danno elettrico o incendiario, MG4 fornisce un boost di danno tale da annientare i boss più resistenti in breve tempo.",
+    "images": {
+      "mainImage": "MG4",
+      "detailsImage": "MG4_details"
+    },
+    "detailsAlt": "Statistiche dettagliate della T-Doll MG4 Mod3: Prontezza, Martello infestato e Protocollo.",
+    "abilities": [
+      {
+        "name": "Prontezza",
+        "text": "Penetrazione +1/2/99, portata +50/120/9999%, danni da penetrazione +30/50/100%."
+      },
+      {
+        "name": "Martello infestato",
+        "text": "DAN personali +20/35/50%. Include Penetrazione +1/2/5 e Cadenza di fuoco +10/20/30%."
+      },
+      {
+        "name": "Protocollo MTL",
+        "text": "Cadenza di fuoco +4/5/8/8 quando si spara, fino a 10/15/20/99 strato/i. Reset dopo la ricarica."
+      },
+      {
+        "name": "Protocollo Torre",
+        "text": "DAN subiti -20/40/60/80% in movimento, e DAN inflitti +30/60/120/200% da fermi."
+      }
+    ]
+  }
+]
