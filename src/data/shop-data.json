@@ -1,0 +1,98 @@
+{
+  "fairy": {
+    "title": "Negozio Fairy",
+    "icon": "ShoppingBag",
+    "priority": "Priorità Potenziamenti",
+    "content": [
+      {
+        "dollTitle": "Fairy Barriera",
+        "dollImage": "Barriera",
+        "dollDescription": "Descrizione: Potenziamento Barriera. Ideale per la difesa.",
+        "detailsTitle": "Dettagli Barriera",
+        "detailsImage": "Barriera_ds",
+        "detailsDescription": "Lo scudo si ricarica all'istante dopo aver eliminato un nemico, con velocità di carica +50/100/200%."
+      },
+      {
+        "dollTitle": "Fairy Provocazione",
+        "dollImage": "Provocazione",
+        "dollDescription": "Descrizione: Potenziamento Provocazione. Per attirare i nemici.",
+        "detailsTitle": "Dettagli Provocazione",
+        "detailsImage": "Provocazione_ds",
+        "detailsDescription": "Numero di nemici generati +20/30/50%, intervallo tra una generazione e la successiva -10/15/20%."
+      },
+      {
+        "dollTitle": "Fairy Pace",
+        "dollImage": "Pace",
+        "dollDescription": "Descrizione: Potenziamento Pace. Ideale per la salute.",
+        "detailsTitle": "Dettagli Pace",
+        "detailsImage": "Pace_ds",
+        "detailsDescription": "Numero di nemici generati -10/20/30%, intervallo tra una generazione e la successiva +10/15/20%."
+      },
+      {
+        "dollTitle": "Fairy Costruzione",
+        "dollImage": "Costruzione",
+        "dollDescription": "Descrizione: Potenziamento Costruzione. Utile per il dispiegamento.",
+        "detailsTitle": "Dettagli Costruzione",
+        "detailsImage": "Costruzione_ds",
+        "detailsDescription": "Ripristina 50/100/200% dello scudo invece di ripristinare i PS."
+      },
+      {
+        "dollTitle": "Fairy Rinforzo",
+        "dollImage": "Rinforzo",
+        "dollDescription": "Descrizione: Potenziamento Rinforzo. Saldi!",
+        "detailsTitle": "Dettagli Rinforzo",
+        "detailsImage": "Rinforzo_ds",
+        "detailsDescription": "Aggiorna a protocolli di trasmissione delle T-Doll di 1/1/2 livelli superiori al tuo, prezzo dell'aggiornamento -10/15/25 %"
+      },
+      {
+        "dollTitle": "Fairy Paracadute",
+        "dollImage": "Paracadute",
+        "dollDescription": "Descrizione: Potenziamento Paracadute, ancora Saldi!. ",
+        "detailsTitle": "Dettagli Paracadute",
+        "detailsImage": "Paracadute_ds",
+        "detailsDescription": "Energia Nuclei richiesta per costruire un link protocollo -10/20/30%, Una T-Doll Protocollo Effettivo compare casualmente con 15/20/30% di probabilità a ogni aggiornamento."
+      },
+      {
+        "dollTitle": "Fairy Scudo",
+        "dollImage": "Scudo",
+        "dollDescription": "Descrizione: Potenziamento Scudo. Protezione avanzata.",
+        "detailsTitle": "Dettagli Scudo",
+        "detailsImage": "Scudo_ds",
+        "detailsDescription": "PS Scudo +15/30/50% quando il personaggio può ricaricarlo."
+      },
+      {
+        "dollTitle": "Fairy Strega",
+        "dollImage": "Strega",
+        "dollDescription": "Descrizione: Potenziamento Strega. schivata.",
+        "detailsTitle": "Dettagli Strega",
+        "detailsImage": "Strega_ds",
+        "detailsDescription": "Probabilità schivata +12/18/25%, carichi all'istante lo scudo dopo una schivata riuscita, con velocità di carica +100/200/300%."
+      }
+    ]
+  },
+  "scacchi": {
+    "title": "Negozio Scacchi",
+    "icon": "Gem",
+    "priority": "Priorità Doll & Monete",
+    "content": [
+      {
+        "title": "Scacchi - T-Doll Speciale",
+        "image": "path/to/scacchi/doll.jpg",
+        "description": "T-Doll esclusiva ottenibile solo con le monete Scacchi.",
+        "type": "doll"
+      },
+      {
+        "title": "Scacchi - Potenziamento Raro",
+        "image": "path/to/scacchi/upgrade.jpg",
+        "description": "Potenziamento Raro, ottimo per le prime fasi del gioco.",
+        "type": "upgrade"
+      },
+      {
+        "title": "Scacchi - Risorse",
+        "image": "path/to/scacchi/resources.jpg",
+        "description": "Risorse utili per l'upgrade di altre T-Doll.",
+        "type": "upgrade"
+      }
+    ]
+  }
+}

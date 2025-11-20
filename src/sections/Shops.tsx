@@ -9,6 +9,9 @@ import {
   Crown,
   ScrollText,
 } from 'lucide-react';
+import shopsDataRaw from '../data/shop-data.json';
+import ButtonContent from '../components/ButtonContent';
+import ShopItem from '../components/ShopItem';
 import Barriera from '../assets/images/Fairy_Shop/Barriera.jpg';
 import Barriera_ds from '../assets/images/Fairy_Shop/Barriera_ds.jpg';
 import Provocazione from '../assets/images/Fairy_Shop/Provocazione.jpg';
@@ -51,120 +54,56 @@ type ShopData = {
   content: ShopContent[];
 };
 
-const FAIRY_SHOP_DATA: ShopData = {
-  title: 'Negozio Fairy',
-  icon: <ShoppingBag className="w-6 h-6 mr-2" />,
-  priority: 'Priorità Potenziamenti',
-  content: [
-    {
-      dollTitle: 'Fairy Barriera',
-      dollImage: Barriera,
-      dollDescription:
-        'Descrizione: Potenziamento Barriera. Ideale per la difesa.',
-      detailsTitle: 'Dettagli Barriera',
-      detailsImage: Barriera_ds,
-      detailsDescription:
-        "Lo scudo si ricarica all'istante dopo aver eliminato un nemico, con velocità di carica +50/100/200%.",
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Provocazione',
-      dollImage: Provocazione,
-      dollDescription:
-        'Descrizione: Potenziamento Provocazione. Per attirare i nemici.',
-      detailsTitle: 'Dettagli Provocazione',
-      detailsImage: Provocazione_ds,
-      detailsDescription:
-        'Numero di nemici generati +20/30/50%, intervallo tra una generazione e la successiva -10/15/20%.',
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Pace',
-      dollImage: Pace,
-      dollDescription: 'Descrizione: Potenziamento Pace. Ideale per la salute.',
-      detailsTitle: 'Dettagli Pace',
-      detailsImage: Pace_ds,
-      detailsDescription:
-        'Numero di nemici generati -10/20/30%, intervallo tra una generazione e la successiva +10/15/20%.',
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Costruzione',
-      dollImage: Costruzione,
-      dollDescription:
-        'Descrizione: Potenziamento Costruzione. Utile per il dispiegamento.',
-      detailsTitle: 'Dettagli Costruzione',
-      detailsImage: Costruzione_ds,
-      detailsDescription:
-        'Ripristina 50/100/200% dello scudo invece di ripristinare i PS.',
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Rinforzo',
-      dollImage: Rinforzo,
-      dollDescription: 'Descrizione: Potenziamento Rinforzo. Saldi!',
-      detailsTitle: 'Dettagli Rinforzo',
-      detailsImage: Rinforzo_ds,
-      detailsDescription:
-        "Aggiorna a protocolli di trasmissione delle T-Doll di 1/1/2 livelli superiori al tuo, prezzo dell'aggiornamento -10/15/25 %",
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Paracadute',
-      dollImage: Paracadute,
-      dollDescription: 'Descrizione: Potenziamento Paracadute, ancora Saldi!. ',
-      detailsTitle: 'Dettagli Paracadute',
-      detailsImage: Paracadute_ds,
-      detailsDescription:
-        'Energia Nuclei richiesta per costruire un link protocollo -10/20/30%, Una T-Doll Protocollo Effettivo compare casualmente con 15/20/30% di probabilità a ogni aggiornamento.',
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Scudo',
-      dollImage: Scudo,
-      dollDescription: 'Descrizione: Potenziamento Scudo. Protezione avanzata.',
-      detailsTitle: 'Dettagli Scudo',
-      detailsImage: Scudo_ds,
-      detailsDescription:
-        'PS Scudo +15/30/50% quando il personaggio può ricaricarlo.',
-    } as FairyItem,
-    {
-      dollTitle: 'Fairy Strega',
-      dollImage: Strega,
-      dollDescription:
-        'Descrizione: Potenziamento Strega. Danni magici/speciali.',
-      detailsTitle: 'Dettagli Strega',
-      detailsImage: Strega_ds,
-      detailsDescription:
-        "Probabilità schivata +12/18/25%, carichi all'istante lo scudo dopo una schivata riuscita, con velocità di carica +100/200/300%.",
-    } as FairyItem,
-  ],
+const imagesMap: Record<string, string> = {
+  Barriera,
+  Barriera_ds,
+  Provocazione,
+  Provocazione_ds,
+  Pace,
+  Pace_ds,
+  Costruzione,
+  Costruzione_ds,
+  Rinforzo,
+  Rinforzo_ds,
+  Paracadute,
+  Paracadute_ds,
+  Scudo,
+  Scudo_ds,
+  Strega,
+  Strega_ds,
 };
 
-const SCACCHI_SHOP_DATA: ShopData = {
-  title: 'Negozio Scacchi',
-  icon: <Gem className="w-6 h-6 mr-2" />,
-  priority: 'Priorità Doll & Monete',
-  content: [
-    {
-      title: 'Scacchi - T-Doll Speciale',
-      image: 'path/to/scacchi/doll.jpg',
-      description: 'T-Doll esclusiva ottenibile solo con le monete Scacchi.',
-      type: 'doll',
-    } as GenericShopItem,
-    {
-      title: 'Scacchi - Potenziamento Raro',
-      image: 'path/to/scacchi/upgrade.jpg',
-      description: 'Potenziamento Raro, ottimo per le prime fasi del gioco.',
-      type: 'upgrade',
-    } as GenericShopItem,
-    {
-      title: 'Scacchi - Risorse',
-      image: 'path/to/scacchi/resources.jpg',
-      description: "Risorse utili per l'upgrade di altre T-Doll.",
-      type: 'upgrade',
-    } as GenericShopItem,
-  ],
-};
+function resolveShopData(raw: any): Record<string, ShopData> {
+  const result: Record<string, ShopData> = {} as Record<string, ShopData>;
+  for (const key of Object.keys(raw)) {
+    const entry = raw[key];
+    const icon =
+      entry.icon === 'ShoppingBag' ? (
+        <ShoppingBag className="w-6 h-6 mr-2" />
+      ) : (
+        <Gem className="w-6 h-6 mr-2" />
+      );
+    const content = entry.content.map((c: any) => {
+      if ('dollTitle' in c) {
+        return {
+          ...c,
+          dollImage: imagesMap[c.dollImage] ?? c.dollImage,
+          detailsImage: imagesMap[c.detailsImage] ?? c.detailsImage,
+        };
+      }
+      return c;
+    });
+    result[key] = {
+      title: entry.title,
+      icon,
+      priority: entry.priority,
+      content,
+    };
+  }
+  return result;
+}
 
-const SHOPS = {
-  fairy: FAIRY_SHOP_DATA,
-  scacchi: SCACCHI_SHOP_DATA,
-};
+const SHOPS: Record<string, ShopData> = resolveShopData(shopsDataRaw);
 
 type ShopKey = keyof typeof SHOPS | null;
 
@@ -183,40 +122,7 @@ export default function Shops() {
     [activeShop]
   );
 
-  const currentShopData = activeShop ? SHOPS[activeShop] : null;
-
-  const ButtonContent = ({ shopKey }: { shopKey: ShopKey }) => {
-    const shop = SHOPS[shopKey as keyof typeof SHOPS];
-    const isActive = activeShop === shopKey;
-    const Icon = isActive ? ChevronUp : ChevronDown;
-
-    return (
-      <button
-        type="button"
-        onClick={() => toggleShop(shopKey)}
-        aria-expanded={isActive}
-        aria-controls="shop-content-panel"
-        className={`
-          w-full py-3 px-4 rounded-lg text-lg font-bold transition-all duration-300
-          flex items-center justify-center outline-none focus-visible:ring-2 
-          focus-visible:ring-cyan-500 shadow-xl 
-          ${
-            isActive
-              ? 'bg-cyan-600 text-neutral-900 hover:bg-cyan-500 shadow-cyan-500/50'
-              : 'bg-neutral-800 text-cyan-400 hover:bg-neutral-700 shadow-neutral-700/50'
-          }
-        `}
-      >
-        {shop.icon}
-        {shop.title}
-        <Icon
-          className={`w-5 h-5 ml-2 transition-transform ${
-            isActive ? 'rotate-0' : 'rotate-180'
-          }`}
-        />
-      </button>
-    );
-  };
+  const currentShopData = activeShop ? SHOPS[activeShop as string] : null;
 
   return (
     <section
@@ -240,9 +146,6 @@ export default function Shops() {
           l'ottimizzazione delle risorse in base alla fase di gioco.
         </p>
 
-        {/* =================================================== */}
-        {/* DROPDOWN DEI CONSIGLI GENERALI */}
-        {/* =================================================== */}
         <details
           className="bg-neutral-800 p-3 rounded-lg shadow-inner shadow-cyan-900/50 mb-6 border border-cyan-800/50"
           onToggle={(e: React.SyntheticEvent<HTMLDetailsElement, Event>) => {
@@ -338,21 +241,26 @@ export default function Shops() {
           </div>
         </details>
 
-        {/* =================================================== */}
-        {/* CONTENITORE PULSANTI TOGGLE (Negozio Scacchi/Fairy) */}
-        {/* =================================================== */}
         <div className="flex flex-col md:flex-row gap-4 mb-6" role="tablist">
           <div className="w-full md:w-1/2" role="presentation">
-            <ButtonContent shopKey="fairy" />
+            <ButtonContent
+              shop={{ title: SHOPS['fairy'].title, icon: SHOPS['fairy'].icon }}
+              isActive={activeShop === 'fairy'}
+              onToggle={() => toggleShop('fairy')}
+            />
           </div>
           <div className="w-full md:w-1/2" role="presentation">
-            <ButtonContent shopKey="scacchi" />
+            <ButtonContent
+              shop={{
+                title: SHOPS['scacchi'].title,
+                icon: SHOPS['scacchi'].icon,
+              }}
+              isActive={activeShop === 'scacchi'}
+              onToggle={() => toggleShop('scacchi')}
+            />
           </div>
         </div>
 
-        {/* =================================================== */}
-        {/* CONTENITORE CONTENUTO */}
-        {/* =================================================== */}
         <div
           id="shop-content-panel"
           role="tabpanel"
@@ -374,108 +282,15 @@ export default function Shops() {
                 {currentShopData.title}: {currentShopData.priority}
               </h4>
 
-              <div className="grid grid-cols-1 gap-6">
-                {' '}
-                {currentShopData.content.map((item, index) => {
-                  if (activeShop === 'fairy' && 'dollTitle' in item) {
-                    const fairy = item as FairyItem;
-                    return (
-                      <div
-                        key={index}
-                        className="bg-neutral-900 p-4 rounded-lg shadow-xl border border-cyan-700
-                                   flex flex-col md:flex-row gap-4 mb-2"
-                      >
-                        {/* Blocco 1: Immagine Doll + Descrizione */}
-                        <div className="flex flex-col items-center md:w-1/2">
-                          <h5 className="font-semibold text-lg text-center mb-2 text-cyan-400">
-                            {fairy.dollTitle}
-                          </h5>
-                          <figure className="mb-2 w-full h-64 flex items-center justify-center bg-neutral-800 rounded-lg">
-                            {' '}
-                            <img
-                              src={fairy.dollImage}
-                              alt={`Immagine di ${fairy.dollTitle}`}
-                              className="max-h-full max-w-full rounded object-contain"
-                            />
-                          </figure>
-                          <p className="text-sm text-slate-400 text-center mt-2">
-                            {fairy.dollDescription}
-                          </p>
-                        </div>
-
-                        {/* Blocco 2: Dettagli Tecnici (Immagine Statistiche + Testo) */}
-                        <div
-                          className="flex flex-col md:w-1/2 
-                                        border-t md:border-t-0 md:border-l border-cyan-800/50 
-                                        pt-4 md:pt-0 md:pl-4"
-                        >
-                          <h5 className="font-semibold text-lg text-center mb-2 text-cyan-400">
-                            {fairy.detailsTitle}
-                          </h5>
-
-                          {/* Contenitore Immagine Statistiche  */}
-                          <figure className="mb-3 w-full h-32 flex items-center justify-center bg-neutral-800 rounded-lg">
-                            <img
-                              src={fairy.detailsImage}
-                              alt={`Dettagli di ${fairy.detailsTitle}`}
-                              className="max-h-full max-w-full rounded object-contain"
-                            />
-                          </figure>
-
-                          {/* Dettagli Testuali */}
-                          <p className="text-sm text-slate-300 mt-2 p-2 bg-neutral-700/50 rounded-md">
-                            <span className="font-bold text-cyan-300">
-                              Statistiche:{' '}
-                            </span>
-                            {fairy.detailsDescription}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  // RENDER PER IL NEGOZIO SCACCHI
-                  else if (activeShop === 'scacchi') {
-                    const genericItem = item as GenericShopItem;
-                    return (
-                      <div
-                        key={index}
-                        className={`
-                          bg-neutral-900 p-3 rounded-lg shadow-md border 
-                          ${
-                            genericItem.type === 'doll'
-                              ? 'border-red-500'
-                              : 'border-cyan-700'
-                          }
-                          flex flex-col sm:flex-row gap-4 items-center mb-2
-                        `}
-                      >
-                        <figure className="w-full sm:w-1/4 h-32 flex items-center justify-center bg-neutral-800 rounded-lg">
-                          <img
-                            src={genericItem.image}
-                            alt={`Immagine di ${genericItem.title}`}
-                            className="max-h-full max-w-full rounded object-contain"
-                          />
-                        </figure>
-                        <div className="w-full sm:w-3/4">
-                          <h5
-                            className={`font-semibold text-lg mb-2 ${
-                              genericItem.type === 'doll'
-                                ? 'text-red-400'
-                                : 'text-cyan-400'
-                            }`}
-                          >
-                            {genericItem.title}
-                          </h5>
-                          <p className="text-sm text-slate-400">
-                            {genericItem.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  }
-                  return null;
-                })}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {currentShopData.content.map((item, index) => (
+                  <ShopItem
+                    key={index}
+                    item={item}
+                    activeShop={activeShop as string}
+                    index={index}
+                  />
+                ))}
               </div>
             </>
           )}
