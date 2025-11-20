@@ -9,19 +9,24 @@ export default function ShopItem({
 }) {
   if (activeShop === 'fairy' && 'dollTitle' in item) {
     const fairy = item;
+    const isSpecial = fairy.dollTitle === 'Fairy Pace'; // Card speciale
 
     return (
       <div
         key={index}
-        className="
-          bg-neutral-900 rounded-lg border border-cyan-700
-          flex flex-col items-center
-          overflow-hidden
+        className={`
+          bg-neutral-900 rounded-lg border
+          flex flex-col items-center overflow-hidden
           transition-transform duration-200
-          hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]
-        "
+          hover:scale-105
+          ${
+            isSpecial
+              ? 'border-red-500 shadow-[0_0_25px_rgba(255,0,0,0.9)] animate-pulse-glow-fast'
+              : 'border-cyan-700 hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]'
+          }
+        `}
       >
-        <figure className="w-full aspect-180/288 bg-neutral-800 overflow-hidden">
+        <figure className="w-full aspect-[186/288] bg-neutral-800 overflow-hidden rounded-t-lg">
           <img
             src={fairy.dollImage}
             alt={`Immagine di ${fairy.dollTitle}`}
@@ -37,6 +42,12 @@ export default function ShopItem({
           <p className="text-xs text-slate-400 line-clamp-3">
             {fairy.detailsDescription}
           </p>
+
+          {isSpecial && (
+            <p className="text-sm text-red-400 font-bold mt-1 animate-pulse">
+              Ti piace vincere facile?
+            </p>
+          )}
         </div>
       </div>
     );
