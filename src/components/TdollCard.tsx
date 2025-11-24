@@ -8,7 +8,6 @@ const imageMap: Record<string, string> = {
   MG4,
 };
 
-// Interfaccia adattata per i componenti di Supporto (che non hanno i campi HK416)
 interface TdollData {
   id: string;
   name: string;

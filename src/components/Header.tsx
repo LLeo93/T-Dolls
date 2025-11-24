@@ -53,7 +53,7 @@ export default function Header() {
             </li>
           </ul>
 
-          {/* Mobile compact menu (simple) */}
+          {/* Mobile compact menu */}
           <div className="md:hidden">
             <details className="relative">
               <summary className="px-2 py-1 rounded cursor-pointer bg-neutral-800 text-gray-100 hover:bg-cyan-900/40 transition duration-200">

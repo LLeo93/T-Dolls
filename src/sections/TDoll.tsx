@@ -65,8 +65,6 @@ interface SupportTDoll extends TDollDataUnion {
   detailsAlt: string;
 }
 
-// ESTRAZIONE DATI DAL JSON
-
 const hk416Data = tdollJsonData.find((tdoll) => tdoll.id === 'hk416') as
   | HK416TDoll
   | undefined;
@@ -106,10 +104,7 @@ export default function TDoll() {
     dropdownRef: hk416DropdownRef,
   } = useDropdownState(false);
 
-  // dropdown  HK416
   const [isOverviewOpen, setIsOverviewOpen] = React.useState(false);
-
-  // dropdown principale
   const [isSupportDropdownOpen, setIsSupportDropdownOpen] =
     React.useState(false);
 
@@ -241,9 +236,7 @@ export default function TDoll() {
         </article>
       </details>
 
-      {/* ========================================================== */}
-      {/* === DROPDOWN 2: T-DOLL DI SUPPORTO ESSENZIALI === */}
-      {/* ========================================================== */}
+      {/*  DROPDOWN 2: T-DOLL DI SUPPORTO ESSENZIALI*/}
 
       <details
         className="bg-neutral-900 p-4 rounded-lg shadow-2xl shadow-cyan-950/50 pt-10 mt-6 border border-cyan-800/50"

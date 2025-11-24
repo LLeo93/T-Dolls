@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-// Particles Warp - Versione Ottimizzata per la Performance
 const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -23,7 +22,6 @@ const AnimatedBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    // 🚩 MODIFICA 1: Riduzione del numero di particelle (da 150 a 100)
     const MAX_PARTICLES = 100;
 
     const PARTICLE_COLOR = 'rgba(2, 237, 245, 1)';
@@ -84,7 +82,6 @@ const AnimatedBackground: React.FC = () => {
       });
     };
 
-    // Inizializzazione: Popola l'array solo all'inizio
     for (let i = 0; i < MAX_PARTICLES; i++) {
       spawnParticle();
     }
@@ -109,7 +106,6 @@ const AnimatedBackground: React.FC = () => {
     window.addEventListener('resize', handleResizeStart);
 
     const update = () => {
-      // Ridotta la probabilità di spawn se siamo sotto MAX_PARTICLES
       if (particles.length < MAX_PARTICLES && Math.random() < 0.15) {
         spawnParticle();
       }
@@ -121,13 +117,10 @@ const AnimatedBackground: React.FC = () => {
 
         const distX = Math.abs(p.x - w / 2);
         const distY = Math.abs(p.y - h / 2);
-
-        // 🚩 MODIFICA 2: Semplificazione del calcolo di distanza/opacità
-        // Usiamo la distanza manhattan (sum) invece di Euclidea (sqrt)
         const dist = distX + distY;
         const maxDist = ((w + h) * FADE_DISTANCE_FACTOR) / 2;
 
-        p.opacity = 1 - dist / maxDist; // Divisione al posto di Math.sqrt
+        p.opacity = 1 - dist / maxDist;
         if (p.opacity < 0) p.opacity = 0;
 
         if (

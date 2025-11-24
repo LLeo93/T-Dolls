@@ -76,22 +76,83 @@
     "priority": "Priorità Doll & Monete",
     "content": [
       {
-        "title": "Scacchi - T-Doll Speciale",
-        "image": "path/to/scacchi/doll.jpg",
-        "description": "T-Doll esclusiva ottenibile solo con le monete Scacchi.",
-        "type": "doll"
+        "title": "Scacchi - percentuali rarità",
+        "image": "dimostrazione1",
+        "description": "Negozio Scacchi. Primo negozio disponibile, presenta quattro Card acquistabili. La rarità è indicata dalle stelle in alto, mentre la freccia evidenzia le attuali probabilità di uscita casuale delle diverse rarità. Con l'avanzare dell'evento, le probabilità cambiano, aumentando a favore delle Card più rare e si nota anche l'aumento dei costi generali di acquisto e potenziamento.",
+        "type": "doll",
+        "badge": {
+          "type": "arrow",
+          "top": "85%",
+          "left": "30%",
+          "size": 15,
+          "color": "rgba(255,0,0,0.9)"
+        }
       },
       {
-        "title": "Scacchi - Potenziamento Raro",
-        "image": "path/to/scacchi/upgrade.jpg",
-        "description": "Potenziamento Raro, ottimo per le prime fasi del gioco.",
-        "type": "upgrade"
+        "title": "Scacchi - acquisti per aumento di livello cards",
+        "image": "dimostrazione2",
+        "description": "Per potenziare una Card al Livello 2 (Lv2) è necessario acquistare tre Card uguali di Livello 1. Questo potenziamento aumenta i bonus della Card. Il simbolo sulla Card cambia per indicare il nuovo livello raggiunto.",
+        "type": "upgrade",
+        "badge": {
+          "type": "arrow",
+          "top": "32%",
+          "left": "19%",
+          "size": 15,
+          "color": "rgba(0,200,255,0.9)"
+        }
       },
       {
-        "title": "Scacchi - Risorse",
-        "image": "path/to/scacchi/resources.jpg",
-        "description": "Risorse utili per l'upgrade di altre T-Doll.",
-        "type": "upgrade"
+        "title": "Scacchi - Aumento di livello a livello 2 di una card",
+        "image": "dimostrazione3",
+        "description": "Cliccando sulla Card potenziata, è possibile visualizzare i valori di potenziamento attuali. L'esempio mostra i tre livelli di potenziamento per un valore specifico, come \"Velocità di movimento: 9/12/24\", dove 9 è il Lv1, 12 il Lv2 e 24 il Lv3.",
+        "type": "upgrade",
+        "badge": {
+          "type": "arrow",
+          "top": "35%",
+          "left": "60%",
+          "size": 15,
+          "color": "rgba(255,220,0,0.9)"
+        }
+      },
+      {
+        "title": "Scacchi - Acquisto di cards per aumento di livello di una card a livello tre",
+        "image": "dimostrazione4",
+        "description": "Per raggiungere il Livello 3 (Lv3) di una Doll, sono necessarie tre Card di Livello 2, il che equivale a un totale di nove Card uguali di Livello 1. Si consiglia di completare i potenziamenti Lv3 (se ritenuti essenziali) nelle prime fasi di gioco, prima che le probabilità di uscita delle Card di basso livello diminuiscano.",
+        "type": "doll",
+        "badge": {
+          "type": "arrow",
+          "top": "32%",
+          "left": "19%",
+          "size": 15,
+          "color": "rgba(255,100,200,0.9)"
+        }
+      },
+      {
+        "title": "Scacchi - Consiglio per acquisti in negozio",
+        "image": "dimostrazione5",
+        "description": "Un consiglio strategico è non investire troppo tempo nelle Card di basso livello, specialmente nelle aree avanzate. Le Card Leggendarie e Mitiche (Leggendarie potenziate) offrono bonus unici e superiori alle altre rarità, rendendo l'investimento in esse più proficuo nel lungo termine.",
+        "type": "upgrade",
+        "badge": {
+          "type": "arrow",
+          "top": "35%",
+          "left": "60%",
+          "size": 15,
+          "color": "rgba(0,255,140,0.9)"
+        }
+      },
+      {
+        "title": "Scacchi - Logica acquisto cards per ottimizzare le catene",
+        "image": "dimostrazione6",
+        "description": "È fondamentale acquistare le Card seguendo una logica strategica per ottimizzare l'uso delle risorse e massimizzare i benefici. Creare le giuste Catene è la chiave per ottenere un setup potente, veloce e con recuperi rapidi. Per saperne di più su come costruire le Catene migliori, consulta la sezione dedicata: <a href=\"#chains\" class=\"text-cyan-400 font-bold hover:underline hover:shadow-lg transition-colors duration-300\" aria-label=\"Vai alla sezione Dettagli Catene per consigli strategici su come massimizzare i bonus\">Catene</a>.",
+        "type": "upgrade",
+        "badge": {
+          "type": "arrow",
+          "top": "93%",
+          "left": "33%",
+          "size": 15,
+          "color": "rgba(255,140,0,0.9)",
+          "rotate": 90
+        }
       }
     ]
   }

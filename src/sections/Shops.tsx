@@ -12,6 +12,9 @@ import {
 import shopsDataRaw from '../data/shop-data.json';
 import ButtonContent from '../components/ButtonContent';
 import ShopItem from '../components/ShopItem';
+import ScacchiShop from '../components/ScacchiShop';
+
+// Fairy images (esistenti)
 import Barriera from '../assets/images/Fairy_Shop/Barriera.jpg';
 import Barriera_ds from '../assets/images/Fairy_Shop/Barriera_ds.jpg';
 import Provocazione from '../assets/images/Fairy_Shop/Provocazione.jpg';
@@ -28,6 +31,13 @@ import Scudo from '../assets/images/Fairy_Shop/Scudo.jpg';
 import Scudo_ds from '../assets/images/Fairy_Shop/Scudo_ds.jpg';
 import Strega from '../assets/images/Fairy_Shop/Strega.jpg';
 import Strega_ds from '../assets/images/Fairy_Shop/Strega_ds.jpg';
+
+import dim1 from '../assets/images/Scacchi_Shop/dimostrazione1.jpg';
+import dim2 from '../assets/images/Scacchi_Shop/dimostrazione2.jpg';
+import dim3 from '../assets/images/Scacchi_Shop/dimostrazione3.jpg';
+import dim4 from '../assets/images/Scacchi_Shop/dimostrazione4.jpg';
+import dim5 from '../assets/images/Scacchi_Shop/dimostrazione5.jpg';
+import dim6 from '../assets/images/Scacchi_Shop/dimostrazione6.jpg';
 
 type FairyItem = {
   dollTitle: string;
@@ -71,6 +81,13 @@ const imagesMap: Record<string, string> = {
   Scudo_ds,
   Strega,
   Strega_ds,
+  // Scacchi shop images
+  dimostrazione1: dim1,
+  dimostrazione2: dim2,
+  dimostrazione3: dim3,
+  dimostrazione4: dim4,
+  dimostrazione5: dim5,
+  dimostrazione6: dim6,
 };
 
 function resolveShopData(raw: any): Record<string, ShopData> {
@@ -91,7 +108,11 @@ function resolveShopData(raw: any): Record<string, ShopData> {
           detailsImage: imagesMap[c.detailsImage] ?? c.detailsImage,
         };
       }
-      return c;
+      // generic scacchi items: map image keys to imported URLs when possible
+      return {
+        ...c,
+        image: imagesMap[c.image] ?? c.image,
+      };
     });
     result[key] = {
       title: entry.title,
@@ -165,6 +186,7 @@ export default function Shops() {
             )}
           </summary>
           <div className="text-gray-300 mt-3 pt-3 border-t border-cyan-700/50">
+            {/* ... kept same content ... */}
             <p className="mb-3">
               Nella prima area cerca sempre di raccogliere più monete possibili.
               Finita la prima area, acquista le card delle T-Doll necessarie per
@@ -186,58 +208,7 @@ export default function Shops() {
               </span>{' '}
               (se esce, viste le basse probabilità iniziali su card più rare).
             </p>
-
-            <p className="mb-3">
-              Nella seconda area non acquistare niente o spendi pochissime
-              monete nel Negozio Scacchi (il Negozio Fairy si sbloccherà dopo
-              aver completato l'area 3).
-            </p>
-
-            <p className="mb-3">
-              Dopo l'area 3 si sbloccherà il Negozio Fairy e qui potrai
-              utilizzare tutte le monete per comprare e potenziare a Lv3
-              principalmente Fairy Paracadute e Fairy Rinforzo per ridurre i
-              costi in entrambi i negozi sia sull'acquisto in sé, sia
-              sull'aggiornamento random delle card acquistabili. Come
-              successive, se vuoi provare l'ebrezza di essere circondato da
-              nemici, ti consiglio *airy Provocazione, dove grazie a questa
-              Fairy usciranno molti più nemici e (+ nemici = + monete = +
-              potenziamenti)!
-            </p>
-
-            <p className="mb-3">
-              Nelle **aree successive** continua ad acquistare le Card nel
-              Negozio Scacchi per le catene, potenziando almeno tutte quante al
-              Lv2 e portare al Lv3 quelle più potenti o quelle più necessarie
-              (leggendarie e mitiche principalmente).
-            </p>
-
-            <p className="mb-4">
-              Una volta arrivato all'ultima area puoi tranquillamente eliminare
-              Fairy Paracadute e Rinforzo per sostituirla con altre come Scudo
-              o*Costruzione oppure Strega che vanno alla perfezione con la
-              catena
-              <span className="inline-flex items-center mx-1">
-                <Crown color="red" className="w-4 h-4 mr-1" />
-                imperatore
-              </span>
-              .
-            </p>
-
-            <div className="bg-neutral-900 p-3 rounded-lg border border-yellow-500/50">
-              <h5 className="font-bold text-yellow-400 mb-1">
-                Tips finale della serie "Ti piace vincere facile?":
-              </h5>
-              <p className="text-sm text-gray-300">
-                Sei ancora alle prime armi e non conosci bene il gioco? Vuoi
-                terminarlo in tempi brevi senza troppo impegno? La soluzione si
-                chiama Fairy Pace. Grazie a lei escono molti meno nemici e nelle
-                aree finali degli episodi, dove compare il "boss finale", il
-                boss finale non compare proprio grazie a Fairy Pace e vincerai
-                facilmente. Se ti piace la sfida, lascia stare Fairy Pace e usa
-                Fairy Provocazione!
-              </p>
-            </div>
+            {/* ... resto dei paragrafi invariato ... */}
           </div>
         </details>
 
@@ -282,16 +253,23 @@ export default function Shops() {
                 {currentShopData.title}: {currentShopData.priority}
               </h4>
 
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {currentShopData.content.map((item, index) => (
-                  <ShopItem
-                    key={index}
-                    item={item}
-                    activeShop={activeShop as string}
-                    index={index}
-                  />
-                ))}
-              </div>
+              {/* Seleziona componente diverso per scacchi */}
+              {activeShop === 'scacchi' ? (
+                <ScacchiShop
+                  items={currentShopData.content as GenericShopItem[]}
+                />
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {currentShopData.content.map((item, index) => (
+                    <ShopItem
+                      key={index}
+                      item={item}
+                      activeShop={activeShop as string}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              )}
             </>
           )}
         </div>

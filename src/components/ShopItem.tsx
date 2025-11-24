@@ -9,7 +9,7 @@ export default function ShopItem({
 }) {
   if (activeShop === 'fairy' && 'dollTitle' in item) {
     const fairy = item;
-    const isSpecial = fairy.dollTitle === 'Fairy Pace'; // Card speciale
+    const isSpecial = fairy.dollTitle === 'Fairy Pace';
 
     return (
       <div
@@ -26,7 +26,7 @@ export default function ShopItem({
           }
         `}
       >
-        <figure className="w-full aspect-[186/288] bg-neutral-800 overflow-hidden rounded-t-lg">
+        <figure className="w-full aspect-186/288 bg-neutral-800 overflow-hidden rounded-t-lg">
           <img
             src={fairy.dollImage}
             alt={`Immagine di ${fairy.dollTitle}`}
@@ -39,9 +39,7 @@ export default function ShopItem({
             {fairy.dollTitle}
           </h5>
 
-          <p className="text-xs text-slate-400 line-clamp-3">
-            {fairy.detailsDescription}
-          </p>
+          <p className="text-xs text-slate-400 ">{fairy.detailsDescription}</p>
 
           {isSpecial && (
             <p className="text-sm text-red-400 font-bold mt-1 animate-pulse">
