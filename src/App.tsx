@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import SkipLink from './components/SkipLink';
 import ScrollTop from './components/ScrollTop';
 import AnimatedBackground from './components/AnimatedBackground';
+import WelcomeModal from './components/WelcomeModal';
 const Hero = React.lazy(() => import('./sections/Hero'));
 const Overview = React.lazy(() => import('./sections/Overview'));
 const Episodes = React.lazy(() => import('./sections/Episodes'));
@@ -54,6 +55,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollTop />
+      <WelcomeModal message="Ari Ari, send f**t pics to LLeo e vedrai come sarà contento" />
     </div>
   );
 }
