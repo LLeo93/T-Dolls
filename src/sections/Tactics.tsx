@@ -23,13 +23,13 @@ export default function Tactics() {
             <li>Usa Fairy in modo strategico a livelli avanzati.</li>
           </ul>
         </div>
-        <figure className="bg-neutral-900 p-4 rounded-lg shadow-2xl shadow-cyan-950/50">
+        {/* <figure className="bg-neutral-900 p-4 rounded-lg shadow-2xl shadow-cyan-950/50">
           <div className="h-40 bg-neutral-800 rounded-lg flex items-center justify-center border border-cyan-800/50">
             <span className="text-slate-400 font-mono">
               [Placeholder Grafico: Esempio di Mostri Boss]
             </span>
           </div>
-        </figure>
+        </figure> */}
       </article>
     </section>
   );

@@ -15,7 +15,7 @@ interface TdollData {
   description: string;
   images: { mainImage: string; detailsImage: string };
   detailsAlt: string;
-  abilities: { name: string; text: string; cooldown?: string; id?: number }[]; // Reso cooldown opzionale
+  abilities: { name: string; text: string; cooldown?: string; id?: number }[];
 }
 
 interface TdollCardProps {

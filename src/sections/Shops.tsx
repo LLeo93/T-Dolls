@@ -81,7 +81,6 @@ const imagesMap: Record<string, string> = {
   Scudo_ds,
   Strega,
   Strega_ds,
-  // Scacchi shop images
   dimostrazione1: dim1,
   dimostrazione2: dim2,
   dimostrazione3: dim3,
@@ -108,7 +107,6 @@ function resolveShopData(raw: any): Record<string, ShopData> {
           detailsImage: imagesMap[c.detailsImage] ?? c.detailsImage,
         };
       }
-      // generic scacchi items: map image keys to imported URLs when possible
       return {
         ...c,
         image: imagesMap[c.image] ?? c.image,
@@ -186,27 +184,48 @@ export default function Shops() {
             )}
           </summary>
           <div className="text-gray-300 mt-3 pt-3 border-t border-cyan-700/50">
-            {/* ... kept same content ... */}
             <p className="mb-3">
-              Nella prima area cerca sempre di raccogliere più monete possibili.
-              Finita la prima area, acquista le card delle T-Doll necessarie per
-              aumentare il tuo potere, tanto quanto basta per arrivare all'area
-              4. Acquista card con catena
+              Fase 1: Inizio Gioco (Area 1 - 3) Concentrati sul raccogliere più
+              monete possibili. Acquisti Iniziali (Negozio Scacchi): Acquista le
+              Card T-Doll necessarie per aumentare il tuo potere e raggiungere
+              l'Area 4. Dai priorità alle Card che formano le catene{' '}
               <span className="inline-flex items-center mx-1">
                 <BicepsFlexed color="yellow" className="w-4 h-4 mr-1" />
                 potere
               </span>
-              ,
+              ,{' '}
               <span className="inline-flex items-center mx-1">
                 <Footprints color="cyan" className="w-4 h-4 mr-1" />
                 carro
               </span>{' '}
-              o
               <span className="inline-flex items-center mx-1">
                 <Crown color="red" className="w-4 h-4 mr-1" />
                 imperatore
               </span>{' '}
-              (se esce, viste le basse probabilità iniziali su card più rare).
+              (se disponibile, dato che la probabilità di uscita è bassa
+              inizialmente). <br />
+              Area 2: Non acquistare nulla o spendi pochissime monete nel
+              Negozio Scacchi.
+              <br />
+              Dopo aver completato l'Area 3, si sblocca il Negozio Fairy.
+              Priorità Fairy (Lv3): Utilizza tutte le monete per potenziare a
+              Livello 3 (Lv3) le seguenti Fairy: Fairy Paracadute Fairy Rinforzo
+              Motivo: Queste Card riducono i costi sia di acquisto che di
+              aggiornamento casuale delle Card in entrambi i negozi. Opzione
+              DPS/Farming: Se desideri un farming aggressivo, potenziando Fairy
+              Provocazione farai uscire molti più nemici, ottenendo così più
+              monete e potenziamenti. Fase 3: Aree Successive e Endgame Negozio
+              Scacchi: Continua ad acquistare Card per completare le catene.
+              Potenziale almeno tutte le Card a Lv2 e porta a Lv3 quelle più
+              potenti o necessarie (principalmente Leggendarie e Mitiche).
+              Endgame (Ultima Area): Sostituisci le Fairy di riduzione costi
+              (Paracadute e Rinforzo). Nuove Fairy: Passa a Fairy orientate al
+              combattimento come Scudo, Barriera o Strega, che si abbinano
+              perfettamente alla catena Imperatore
+              <span className="inline-flex items-center mx-1">
+                <Crown color="red" className="w-4 h-4 mr-1" />
+                imperatore
+              </span>{' '}
             </p>
             {/* ... resto dei paragrafi invariato ... */}
           </div>

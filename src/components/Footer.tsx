@@ -10,7 +10,7 @@ export default function Footer() {
           <span className="font-mono text-cyan-400">
             &lt;CODM T-Doll Guide&gt;
           </span>
-          <span className="ml-2">© 2025. Tutti i diritti riservati.</span>
+          <span className="ml-2">© 2025</span>
         </div>
 
         <nav aria-label="Link utili">
