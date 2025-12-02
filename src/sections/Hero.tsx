@@ -16,7 +16,6 @@ import {
   X as XIcon,
 } from 'lucide-react';
 
-// --- INTERFACCE ---
 interface Stats {
   attack: number;
   health: number;
@@ -44,7 +43,6 @@ interface PlayerData {
   uniqueIcon: IconData;
 }
 
-//  DATI BASE
 const BASE_ICONS: (Omit<IconData, 'description' | 'imageSrc'> & {
   key: keyof Stats;
 })[] = [

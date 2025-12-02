@@ -9,7 +9,7 @@ export default function Footer() {
         {/*Link utili */}
         <div>
           <span className="font-mono text-cyan-400">
-            &lt;CODM T-Doll Guide&gt;
+            &lt;T-Doll Guide &#40;Non ufficiale!&#41;&gt;
           </span>
           <span className="ml-2">© 2025</span>
         </div>
