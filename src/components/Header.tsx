@@ -21,7 +21,7 @@ export default function Header() {
               🔥
             </span>
             <span className="font-semibold  text-gray-200 ">
-              CODM T-Doll Guide
+              T-Doll Guide(Non ufficiale!)
             </span>
           </a>
           <span className="hidden sm:inline text-sm text-gray-200">

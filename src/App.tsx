@@ -12,13 +12,17 @@ const Chains = React.lazy(() => import('./sections/Chains'));
 const Shops = React.lazy(() => import('./sections/Shops'));
 const Tactics = React.lazy(() => import('./sections/Tactics'));
 const Copyright = React.lazy(() => import('./sections/Copyright'));
+const DisclaimerModal = React.lazy(
+  () => import('./components/DisclaimerModal')
+);
 
 export default function App() {
   useEffect(() => {
-    document.title = 'CODM T-Doll Guide — Mutazione Collasso | Guida 2025';
+    document.title =
+      'CODM T-Doll Guide(Non ufficiale!) — Mutazione Collasso | Guida 2025';
     const meta = document.querySelector('meta[name="description"]');
     const desc =
-      "Guida T-Doll per l'evento Mutazione Collasso: strategie, catene, negozi, tattiche e build consigliate.";
+      "Guida T-Doll(Non ufficiale!) per l'evento Mutazione Collasso: strategie, catene, negozi, tattiche e build consigliate.";
     if (meta) meta.setAttribute('content', desc);
     else {
       const m = document.createElement('meta');
@@ -54,6 +58,9 @@ export default function App() {
       </main>
       <Footer />
       <ScrollTop />
+      <Suspense fallback={null}>
+        <DisclaimerModal />
+      </Suspense>
     </div>
   );
 }

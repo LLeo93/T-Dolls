@@ -14,7 +14,6 @@ import ButtonContent from '../components/ButtonContent';
 import ShopItem from '../components/ShopItem';
 import ScacchiShop from '../components/ScacchiShop';
 
-// Fairy images (esistenti)
 import Barriera from '../assets/images/Fairy_Shop/Barriera.jpg';
 import Barriera_ds from '../assets/images/Fairy_Shop/Barriera_ds.jpg';
 import Provocazione from '../assets/images/Fairy_Shop/Provocazione.jpg';
@@ -227,7 +226,6 @@ export default function Shops() {
                 imperatore
               </span>{' '}
             </p>
-            {/* ... resto dei paragrafi invariato ... */}
           </div>
         </details>
 
@@ -271,8 +269,6 @@ export default function Shops() {
                 {currentShopData.icon}
                 {currentShopData.title}: {currentShopData.priority}
               </h4>
-
-              {/* Seleziona componente diverso per scacchi */}
               {activeShop === 'scacchi' ? (
                 <ScacchiShop
                   items={currentShopData.content as GenericShopItem[]}
