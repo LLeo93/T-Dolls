@@ -245,9 +245,9 @@ export default function Hero() {
       <div className="prose max-w-none mx-auto">
         <h1
           id="hero-title"
-          className="text-3xl sm:text-4xl font-extrabold text-gray-100"
+          className="text-3xl sm:text-4xl font-extrabold text-gray-100 text-center"
         >
-          💥 Mutazione Collasso (T-Doll CODM) 💥
+          Mutazione Collasso <br /> 💥(T-Doll) 💥
         </h1>
 
         <p className="text-gray-100 text-center" aria-hidden={false}>
